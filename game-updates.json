@@ -13,6 +13,11 @@
   ],
   "cattetris": [
     {
+      "sha": "8ee059596786748af0eeaf84dcd46e2435ed767f",
+      "message": "Add GitHub Actions workflow to notify game portal",
+      "updatedAt": "2026-10-11T06:15:50.956Z"
+    },
+    {
       "sha": "d3803967987345b40162022cd0c626c727982249",
       "message": "DOCS: 배포 방식을 게임 포털 함께 빌드 기준으로 수정",
       "updatedAt": "2026-10-11T05:26:34.000Z"

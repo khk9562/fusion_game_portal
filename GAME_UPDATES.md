@@ -14,6 +14,7 @@
 
 | 날짜 (KST) | 커밋 | 내용 |
 |---|---|---|
+| 2026-10-11 15:15 | [8ee0595](https://github.com/khk9562/cattetris/commit/8ee059596786748af0eeaf84dcd46e2435ed767f) | Add GitHub Actions workflow to notify game portal |
 | 2026-10-11 14:26 | [d380396](https://github.com/khk9562/cattetris/commit/d3803967987345b40162022cd0c626c727982249) | DOCS: 배포 방식을 게임 포털 함께 빌드 기준으로 수정 |
 
 ## 당신이 철학과 학생이 된다면? (philosophy)
