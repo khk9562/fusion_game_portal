@@ -1,14 +1,17 @@
-// 각 게임 저장소의 최신 코드를 내려받아 빌드하고 dist/games/<slug>/에 넣는다. 포털 빌드(vite build) 다음에 실행한다.
+// 각 게임 저장소를 game-updates.json에 기록된 커밋으로 내려받아 빌드하고 dist/games/<slug>/에 넣는다.
+// 포털 빌드(vite build) 다음에 실행한다. 기록이 없는 게임은 main을 쓰고, GAMES_REF=main을 주면 모두 최신 main으로 빌드한다.
 // 게임 코드는 이 저장소에 커밋하지 않는다. 내려받은 코드는 .games/에 두고 다음 빌드에서 다시 쓴다.
 import { execFileSync } from 'node:child_process';
-import { copyFileSync, cpSync, existsSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
+import { copyFileSync, cpSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { games } from '../src/games.ts';
+import { latestSha, type GameUpdates } from '../src/gameUpdates.ts';
 
 const root = path.resolve(import.meta.dirname, '..');
 const workRoot = path.join(root, '.games');
 const distRoot = path.join(root, 'dist');
-const ref = process.env.GAMES_REF ?? 'main';
+const forcedRef = process.env.GAMES_REF;
+const updates = JSON.parse(readFileSync(path.join(root, 'game-updates.json'), 'utf8')) as GameUpdates;
 
 const run = (cmd: string, args: string[], cwd: string) =>
   execFileSync(cmd, args, {
@@ -26,15 +29,18 @@ const built: Record<string, string> = {};
 
 for (const game of games) {
   const workDir = path.join(workRoot, game.slug);
+  const ref = forcedRef ?? latestSha(updates, game.slug) ?? 'main';
   console.log(`\n=== ${game.slug} (${game.repo} @ ${ref})`);
 
-  if (existsSync(path.join(workDir, '.git'))) {
-    run('git', ['fetch', '--depth', '1', 'origin', ref], workDir);
-    run('git', ['reset', '--hard', 'FETCH_HEAD'], workDir);
-  } else {
-    mkdirSync(workRoot, { recursive: true });
-    run('git', ['clone', '--depth', '1', '--branch', ref, `${game.repo}.git`, workDir], root);
+  // 브랜치와 커밋 해시 모두 같은 방법으로 받는다(GitHub는 커밋 해시를 바로 fetch할 수 있다)
+  if (!existsSync(path.join(workDir, '.git'))) {
+    mkdirSync(workDir, { recursive: true });
+    run('git', ['init', '-q'], workDir);
+    run('git', ['remote', 'add', 'origin', `${game.repo}.git`], workDir);
   }
+  run('git', ['fetch', '-q', '--depth', '1', 'origin', ref], workDir);
+  run('git', ['reset', '-q', '--hard', 'FETCH_HEAD'], workDir);
+  run('git', ['clean', '-q', '-fdx', '-e', 'node_modules'], workDir);
 
   run('npm', ['ci', '--no-audit', '--no-fund'], workDir);
   run('npm', ['run', 'build'], workDir);
