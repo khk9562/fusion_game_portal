@@ -14,12 +14,14 @@ function devProxyFromVercel(): Record<string, ProxyOptions> {
   return Object.fromEntries(
     rewrites.map(({ source, destination }) => {
       const prefix = source.replace('(.*)', '');
+      // 목적지가 GitHub Pages처럼 하위 경로(/turtle-rider/)일 수 있어 경로 앞부분을 바꿔 끼운다
+      const target = new URL(destination.replace('$1', ''));
       return [
         prefix,
         {
-          target: new URL(destination.replace('$1', '')).origin,
+          target: target.origin,
           changeOrigin: true,
-          rewrite: (path: string) => path.slice(prefix.length - 1),
+          rewrite: (path: string) => target.pathname + path.slice(prefix.length),
         },
       ];
     }),

@@ -35,11 +35,12 @@ describe('vercel.json', () => {
 describe.each(games)('$slug 경로', (game) => {
   const base = gamePath(game);
   const rewrite = vercelConfig.rewrites.find((r) => r.source.startsWith(base));
-  const origin = new URL(rewrite?.destination.replace('$1', '') ?? 'http://missing').origin;
+  // 게임 배포의 첫 화면 주소. Vercel은 https://x.vercel.app/, GitHub Pages는 https://<user>.github.io/<repo>/ 형태다
+  const target = rewrite?.destination.replace('$1', '') ?? '';
 
-  it('게임 배포 주소(https)가 있다', () => {
+  it('게임 배포 주소(https, 끝 슬래시)가 있다', () => {
     expect(rewrite).toBeDefined();
-    expect(origin).toMatch(/^https:\/\//);
+    expect(target).toMatch(/^https:\/\/[^/]+(\/[^/]+)*\/$/);
   });
 
   it('끝 슬래시 없는 주소는 슬래시 붙은 주소로 보낸다(상대 경로 자산이 깨지지 않도록)', () => {
@@ -47,9 +48,9 @@ describe.each(games)('$slug 경로', (game) => {
   });
 
   it('게임 첫 화면과 하위 파일, 화면 경로를 게임 배포로 넘긴다', () => {
-    expect(resolve(base)).toEqual({ rewrite: `${origin}/` });
-    expect(resolve(`${base}assets/index.js`)).toEqual({ rewrite: `${origin}/assets/index.js` });
-    expect(resolve(`${base}select`)).toEqual({ rewrite: `${origin}/select` });
+    expect(resolve(base)).toEqual({ rewrite: target });
+    expect(resolve(`${base}assets/index.js`)).toEqual({ rewrite: `${target}assets/index.js` });
+    expect(resolve(`${base}select`)).toEqual({ rewrite: `${target}select` });
   });
 
   it('썸네일 픽셀 아트가 올바르다', () => {

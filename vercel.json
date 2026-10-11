@@ -6,7 +6,7 @@
     { "source": "/games/philosophy", "destination": "/games/philosophy/", "permanent": false }
   ],
   "rewrites": [
-    { "source": "/games/turtle-rider/(.*)", "destination": "https://turtle-rider.vercel.app/$1" },
+    { "source": "/games/turtle-rider/(.*)", "destination": "https://khk9562.github.io/turtle-rider/$1" },
     { "source": "/games/cattetris/(.*)", "destination": "https://cattetris.vercel.app/$1" },
     { "source": "/games/philosophy/(.*)", "destination": "https://what-if-you-were-a-philosophy-student.vercel.app/$1" }
   ]
