@@ -1,0 +1,75 @@
+.page {
+  width: 100%;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: max(1.5rem, env(safe-area-inset-top)) 1rem max(2rem, env(safe-area-inset-bottom));
+}
+
+.header {
+  padding: 1.5rem 0 2rem;
+  border-bottom: 0.0625rem dashed var(--color-line);
+  margin-bottom: 1.5rem;
+}
+
+.kicker {
+  margin: 0;
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
+
+.title {
+  margin: 0.25rem 0 0;
+  font-size: clamp(1.75rem, 6vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.lead {
+  max-width: 34rem;
+  margin: 0.75rem 0 0;
+  color: var(--color-muted);
+}
+
+.count {
+  margin: 1rem 0 0;
+  color: var(--color-muted);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+}
+
+.count span {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.grid > li {
+  display: flex;
+}
+
+.grid > li > * {
+  flex: 1;
+}
+
+.footer {
+  margin-top: 2.5rem;
+  color: var(--color-muted);
+  font-size: 0.8125rem;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+}

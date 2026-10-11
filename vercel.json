@@ -1,0 +1,13 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    { "source": "/games/turtle-rider", "destination": "/games/turtle-rider/", "permanent": false },
+    { "source": "/games/cattetris", "destination": "/games/cattetris/", "permanent": false },
+    { "source": "/games/philosophy", "destination": "/games/philosophy/", "permanent": false }
+  ],
+  "rewrites": [
+    { "source": "/games/turtle-rider/(.*)", "destination": "https://turtle-rider.vercel.app/$1" },
+    { "source": "/games/cattetris/(.*)", "destination": "https://cattetris.vercel.app/$1" },
+    { "source": "/games/philosophy/(.*)", "destination": "https://what-if-you-were-a-philosophy-student.vercel.app/$1" }
+  ]
+}
