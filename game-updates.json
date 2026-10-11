@@ -13,6 +13,11 @@
   ],
   "cattetris": [
     {
+      "sha": "9ca6e89682254b3b37ddf284d06bc655e4b43070",
+      "message": "FEAT: 스테이지마다 팡 기준(N마리 팡 / 팡 없음)을 화면에 표시",
+      "updatedAt": "2026-10-11T12:31:16.120Z"
+    },
+    {
       "sha": "8ee059596786748af0eeaf84dcd46e2435ed767f",
       "message": "Add GitHub Actions workflow to notify game portal",
       "updatedAt": "2026-10-11T06:15:50.956Z"
