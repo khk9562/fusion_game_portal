@@ -1,3 +1,5 @@
+import type { BackButtonPosition } from './backButton';
+
 // 포털에 올라가는 게임 목록. 게임 코드는 각 저장소에서 따로 관리하고, 여기에는 보여 줄 정보와 빌드 방법만 둔다.
 // 포털을 배포할 때 scripts/build-games.ts가 각 저장소의 최신 코드를 내려받아 빌드하고 dist/games/<slug>/에 넣는다.
 // 게임은 하위 경로에서 열리므로 자산을 상대 경로로 불러와야 한다(Vite base './', CRA homepage '.').
@@ -13,6 +15,8 @@ export type Game = {
   outDir: string;
   // 새로고침해도 열려야 하는 화면 경로. GitHub Pages는 /select 요청에 select.html을 내려주므로 index.html을 복사해 둔다
   spaRoutes?: string[];
+  // 게임 화면에 넣는 "포털로 돌아가기" 버튼 자리(기본: 위 가운데). 게임 버튼과 겹치면 바꾼다
+  backButton?: BackButtonPosition;
 };
 
 export const games: Game[] = [
@@ -46,6 +50,8 @@ export const games: Game[] = [
     repo: 'https://github.com/khk9562/WhatIfYouWereAPhilosophyStudent',
     outDir: 'build',
     spaRoutes: ['select', 'result'],
+    // 결과 화면 제목이 위 가운데에 붙어 있어 왼쪽 위에 둔다
+    backButton: 'top-left',
   },
 ];
 

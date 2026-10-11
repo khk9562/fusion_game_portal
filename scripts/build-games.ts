@@ -6,6 +6,7 @@ import { copyFileSync, cpSync, existsSync, mkdirSync, readFileSync, rmSync, writ
 import path from 'node:path';
 import { games } from '../src/games.ts';
 import { latestSha, type GameUpdates } from '../src/gameUpdates.ts';
+import { injectBackButton } from '../src/backButton.ts';
 
 const root = path.resolve(import.meta.dirname, '..');
 const workRoot = path.join(root, '.games');
@@ -49,6 +50,9 @@ for (const game of games) {
   const target = path.join(distRoot, 'games', game.slug);
   rmSync(target, { recursive: true, force: true });
   cpSync(outDir, target, { recursive: true });
+  // 게임 화면에 "포털로 돌아가기" 버튼을 넣는다(새로고침용 복사본보다 먼저)
+  const indexPath = path.join(target, 'index.html');
+  writeFileSync(indexPath, injectBackButton(readFileSync(indexPath, 'utf8'), game.backButton));
   for (const route of game.spaRoutes ?? []) {
     copyFileSync(path.join(target, 'index.html'), path.join(target, `${route}.html`));
   }

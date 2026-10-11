@@ -30,6 +30,7 @@
 ④ 빌드
       포털 화면 빌드 → dist/
       게임마다 기록된 맨 위 커밋을 받아 빌드 → dist/games/<slug>/
+      게임 화면에 "← 포털" 버튼을 넣음
       │
       ▼
 ⑤ dist/를 gh-pages 브랜치에 올림 → GitHub Pages가 사이트 갱신
@@ -57,6 +58,7 @@
 **3. 포털에 등록** (이 저장소)
 - `src/games.ts`에 게임을 추가합니다. `slug`(포털 경로), `repo`, `outDir`(Vite는 `dist`, CRA는 `build`), 새로고침해도 열려야 하는 화면 경로가 있으면 `spaRoutes`.
 - `src/thumbnails/sprites.ts`에 같은 `slug`로 썸네일 픽셀 아트를 추가합니다.
+- 게임 화면에는 "← 포털" 버튼이 자동으로 들어갑니다(기본 위 가운데). 게임 버튼과 겹치면 `games.ts`의 `backButton`으로 자리를 바꿉니다(`top-left`, `top-right`, `bottom-left`, `bottom-right`).
 - `npm test`, `npm run build:all`로 확인하고 `main`에 푸시합니다. 이 푸시로 포털이 배포됩니다.
 
 **4. 확인**

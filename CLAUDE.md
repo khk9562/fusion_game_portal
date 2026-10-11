@@ -6,6 +6,7 @@
 
 ## 구조 규칙
 - 게임 코드는 이 저장소에 커밋하지 않는다. 배포할 때 `scripts/build-games.ts`가 각 게임 저장소를 `.games/`에 받아 빌드하고 `dist/games/<slug>/`에 넣는다
+- 게임 화면의 "← 포털" 버튼은 빌드 때 `src/backButton.ts`가 각 게임 HTML에 넣는다. 게임 코드에는 넣지 않는다
 - 게임 목록과 빌드 방법은 `src/games.ts`, 썸네일은 `src/thumbnails/sprites.ts`에만 둔다
 - 포털과 게임 모두 상대 경로로 자산을 불러온다. 포털은 GitHub Pages 하위 경로(`/fusion_game_portal/`)에 올라간다
 - 배포는 `.github/workflows/deploy-pages.yml`이 gh-pages 브랜치로 한다. 게임은 `game-updates.json`의 맨 위 커밋으로 빌드한다
