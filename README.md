@@ -78,4 +78,5 @@ npm run deploy:pages  # 로컬에서 직접 gh-pages로 배포(평소에는 Acti
 ```
 
 ## GitHub Pages 설정
-**Settings > Pages > Build and deployment**에서 Source가 **Deploy from a branch**, Branch가 **gh-pages / (root)**인지 확인합니다.
+- **Settings > Pages > Build and deployment**에서 Source가 **Deploy from a branch**, Branch가 **gh-pages / (root)**인지 확인합니다.
+- 자동 배포 워크플로의 원본은 `docs/deploy-pages.yml`입니다. 이 파일을 `.github/workflows/deploy-pages.yml`로 추가해야 자동 배포가 동작합니다. 워크플로를 고칠 때도 두 파일을 함께 고칩니다.
