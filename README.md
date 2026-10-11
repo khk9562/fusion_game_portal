@@ -79,3 +79,7 @@ npm run preview                   # build:all 결과 미리 보기
 - GitHub Pages 설정: **Settings > Pages**에서 Source는 **Deploy from a branch**, Branch는 **gh-pages / (root)**.
 - 워크플로 원본은 [`docs/workflows/`](docs/workflows/)에 있습니다. 워크플로를 고칠 때는 원본과 `.github/workflows/`의 파일을 함께 고칩니다.
 - `GAME_UPDATES.md`는 `game-updates.json`에서 자동으로 만들어지므로 직접 고치지 않습니다.
+
+## 라이선스
+
+© 2026 StellaKHK. [MIT License](LICENSE)로 누구나 자유롭게 사용, 수정, 배포할 수 있습니다. 각 게임은 자기 저장소의 라이선스를 따릅니다.

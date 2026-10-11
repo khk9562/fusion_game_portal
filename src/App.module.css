@@ -62,3 +62,22 @@
 .grid > li > * {
   flex: 1;
 }
+
+.footer {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 0.0625rem dashed var(--color-line);
+  color: var(--color-muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  color: var(--color-text);
+  text-underline-offset: 0.2em;
+}

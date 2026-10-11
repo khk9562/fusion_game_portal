@@ -27,6 +27,16 @@ export default function App() {
           ))}
         </ul>
       </main>
+
+      <footer className={styles.footer}>
+        <p>
+          © 2026 StellaKHK. Released under the{' '}
+          <a href="https://github.com/khk9562/fusion_game_portal/blob/main/LICENSE" target="_blank" rel="noreferrer">
+            MIT License
+          </a>
+          .
+        </p>
+      </footer>
     </div>
   );
 }
