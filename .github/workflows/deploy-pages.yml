@@ -1,31 +1,31 @@
 # 포털과 세 게임을 함께 빌드해 gh-pages 브랜치에 올린다. GitHub Pages는 gh-pages 브랜치(/ 루트)를 배포한다.
-# - 포털 main에 푸시할 때
+# 게임은 game-updates.json에 기록된 커밋으로 빌드한다.
+# - 포털 main에 변경이 생길 때(push)
 # - Actions 탭에서 직접 실행할 때(workflow_dispatch)
-# - 게임 저장소가 repository_dispatch(game-updated)를 보낼 때
-# - 매일 한 번(게임 저장소의 변경을 놓치지 않도록)
+# - record-game-update.yml이 게임 업데이트를 main에 기록한 뒤(workflow_call)
+#   (GITHUB_TOKEN으로 한 푸시는 push 이벤트를 만들지 않으므로 기록 워크플로가 직접 부른다)
 name: Deploy to GitHub Pages
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
-  repository_dispatch:
-    types: [game-updated]
-  schedule:
-    - cron: '0 18 * * *' # 매일 03:00 KST
+  workflow_call:
 
 permissions:
   contents: write
 
-concurrency:
-  group: pages
-  cancel-in-progress: true
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    concurrency:
+      group: pages
+      cancel-in-progress: true
     steps:
+      # 기록 워크플로에서 불릴 때도 방금 기록한 main을 빌드하도록 main을 받는다
       - uses: actions/checkout@v4
+        with:
+          ref: main
 
       - uses: actions/setup-node@v4
         with:
@@ -47,5 +47,5 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
-          git commit -q -m "Deploy ${GITHUB_SHA::7}"
+          git commit -q -m "Deploy $(git -C .. rev-parse --short HEAD)"
           git push -f "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
