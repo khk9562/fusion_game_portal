@@ -6,9 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:games": "node scripts/build-games.ts",
+    "build:all": "npm run build && npm run build:games",
     "lint": "eslint .",
     "test": "vitest run",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy:pages": "bash scripts/deploy-pages.sh"
   },
   "dependencies": {
     "react": "^19.2.4",
@@ -19,7 +22,6 @@
     "@types/node": "^24.12.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "@vercel/routing-utils": "^6.6.0",
     "@vitejs/plugin-react": "^6.0.1",
     "eslint": "^9.39.4",
     "eslint-plugin-react-hooks": "^7.0.1",
