@@ -15,6 +15,11 @@
   ],
   "philosophy": [
     {
+      "sha": "e73675df95efab32d4f74b72cf60b73893821db9",
+      "message": "Add GitHub Actions workflow to notify game portal",
+      "updatedAt": "2026-10-11T06:13:11.034Z"
+    },
+    {
       "sha": "72ffe5f013b80d526eb36e947b78950d92e67eba",
       "message": "DESIGN.md 추가와 디자인 토큰 정리",
       "updatedAt": "2026-10-11T06:02:25.000Z"
