@@ -19,4 +19,5 @@
 
 | 날짜 (KST) | 커밋 | 내용 |
 |---|---|---|
+| 2026-10-11 15:02 | [72ffe5f](https://github.com/khk9562/WhatIfYouWereAPhilosophyStudent/commit/72ffe5f013b80d526eb36e947b78950d92e67eba) | DESIGN.md 추가와 디자인 토큰 정리 |
 | 2026-10-11 14:50 | [df06489](https://github.com/khk9562/WhatIfYouWereAPhilosophyStudent/commit/df06489a12628ab2aec795408ff25c3c8279dcd6) | 첫 화면과 결과 화면 리디자인, 링크 공유 미리보기 추가 |
