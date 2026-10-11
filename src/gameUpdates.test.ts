@@ -56,11 +56,13 @@ describe('게임 업데이트 기록', () => {
     expect(md).toContain('## 냥스택 (cattetris)\n\n아직 기록이 없습니다.');
   });
 
-  it('저장된 기록은 모든 게임에 올바른 커밋을 갖는다', () => {
+  // 새로 추가한 게임은 첫 푸시 전까지 기록이 없을 수 있다(그동안은 main으로 빌드한다)
+  it('저장된 기록은 등록된 게임의 올바른 커밋이다', () => {
     const saved = updatesFile as GameUpdates;
-    for (const game of games) {
-      const current = latestSha(saved, game.slug);
-      expect(current && isCommitSha(current)).toBe(true);
+    const slugs = games.map((game) => game.slug);
+    for (const [slug, entries] of Object.entries(saved)) {
+      expect(slugs).toContain(slug);
+      for (const entry of entries) expect(isCommitSha(entry.sha)).toBe(true);
     }
   });
 });
