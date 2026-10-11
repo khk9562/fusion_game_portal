@@ -27,10 +27,6 @@ export default function App() {
           ))}
         </ul>
       </main>
-
-      <footer className={styles.footer}>
-        <p>각 게임은 자기 저장소에서 따로 개발합니다. 이 포털은 배포할 때 게임들을 함께 빌드해 한 주소로 모아 보여 줍니다.</p>
-      </footer>
     </div>
   );
 }
