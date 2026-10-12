@@ -13,6 +13,11 @@
   ],
   "cattetris": [
     {
+      "sha": "4fd91e63f3692a84b56f62f9cee12fdec514a0f9",
+      "message": "FEAT: 아래 버튼을 0.4초 이상 누르고 있으면 하드 드롭",
+      "updatedAt": "2026-10-12T12:51:04.905Z"
+    },
+    {
       "sha": "9ca6e89682254b3b37ddf284d06bc655e4b43070",
       "message": "FEAT: 스테이지마다 팡 기준(N마리 팡 / 팡 없음)을 화면에 표시",
       "updatedAt": "2026-10-11T12:31:16.120Z"

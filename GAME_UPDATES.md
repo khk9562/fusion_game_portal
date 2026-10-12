@@ -14,6 +14,7 @@
 
 | 날짜 (KST) | 커밋 | 내용 |
 |---|---|---|
+| 2026-10-12 21:51 | [4fd91e6](https://github.com/khk9562/cattetris/commit/4fd91e63f3692a84b56f62f9cee12fdec514a0f9) | FEAT: 아래 버튼을 0.4초 이상 누르고 있으면 하드 드롭 |
 | 2026-10-11 21:31 | [9ca6e89](https://github.com/khk9562/cattetris/commit/9ca6e89682254b3b37ddf284d06bc655e4b43070) | FEAT: 스테이지마다 팡 기준(N마리 팡 / 팡 없음)을 화면에 표시 |
 | 2026-10-11 15:15 | [8ee0595](https://github.com/khk9562/cattetris/commit/8ee059596786748af0eeaf84dcd46e2435ed767f) | Add GitHub Actions workflow to notify game portal |
 | 2026-10-11 14:26 | [d380396](https://github.com/khk9562/cattetris/commit/d3803967987345b40162022cd0c626c727982249) | DOCS: 배포 방식을 게임 포털 함께 빌드 기준으로 수정 |
