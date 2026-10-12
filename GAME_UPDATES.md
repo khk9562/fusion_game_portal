@@ -7,6 +7,7 @@
 
 | 날짜 (KST) | 커밋 | 내용 |
 |---|---|---|
+| 2026-10-12 22:02 | [123ac7b](https://github.com/khk9562/turtle-rider/commit/123ac7b8476311559bbfc941fcd5f5807a25f109) | FEAT: 휴대폰에서 정보 영역을 한 줄로 줄여 판이 화면 너비를 채우게 |
 | 2026-10-11 15:14 | [671a642](https://github.com/khk9562/turtle-rider/commit/671a642c58a8fb7f2cde2185018d2d43a68ae75a) | Add GitHub Actions workflow to notify game portal |
 | 2026-10-11 14:27 | [0236999](https://github.com/khk9562/turtle-rider/commit/0236999054b1cd0dc73e60d8ff0cd8b333cdf661) | FIX: 단독 배포 도구를 지우고 게임 포털 함께 빌드 기준으로 정리 |
 

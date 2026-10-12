@@ -1,6 +1,11 @@
 {
   "turtle-rider": [
     {
+      "sha": "123ac7b8476311559bbfc941fcd5f5807a25f109",
+      "message": "FEAT: 휴대폰에서 정보 영역을 한 줄로 줄여 판이 화면 너비를 채우게",
+      "updatedAt": "2026-10-12T13:02:03.627Z"
+    },
+    {
       "sha": "671a642c58a8fb7f2cde2185018d2d43a68ae75a",
       "message": "Add GitHub Actions workflow to notify game portal",
       "updatedAt": "2026-10-11T06:14:56.808Z"
