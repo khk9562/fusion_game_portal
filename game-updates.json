@@ -18,6 +18,11 @@
   ],
   "cattetris": [
     {
+      "sha": "ea6c6bc9fcb41611c292c9eee9b11951fd8866a6",
+      "message": "Merge pull request #3 from khk9562/claude/nifty-curie-gi6g77",
+      "updatedAt": "2026-10-13T13:07:39.223Z"
+    },
+    {
       "sha": "4fd91e63f3692a84b56f62f9cee12fdec514a0f9",
       "message": "FEAT: 아래 버튼을 0.4초 이상 누르고 있으면 하드 드롭",
       "updatedAt": "2026-10-12T12:51:04.905Z"
