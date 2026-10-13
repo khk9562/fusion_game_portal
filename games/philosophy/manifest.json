@@ -1,0 +1,15 @@
+{
+  "short_name": "철학과 테스트",
+  "name": "21세기 대한민국 철학과에 진학했다면?!",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#6E44FF",
+  "background_color": "#ffffff"
+}
