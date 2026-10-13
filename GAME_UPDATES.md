@@ -15,6 +15,7 @@
 
 | 날짜 (KST) | 커밋 | 내용 |
 |---|---|---|
+| 2026-10-13 22:39 | [a62e53b](https://github.com/khk9562/cattetris/commit/a62e53b8e7ea304c87231704c255eb042a2050fc) | Merge pull request #4 from khk9562/claude/nifty-curie-gi6g77 |
 | 2026-10-13 22:07 | [ea6c6bc](https://github.com/khk9562/cattetris/commit/ea6c6bc9fcb41611c292c9eee9b11951fd8866a6) | Merge pull request #3 from khk9562/claude/nifty-curie-gi6g77 |
 | 2026-10-12 21:51 | [4fd91e6](https://github.com/khk9562/cattetris/commit/4fd91e63f3692a84b56f62f9cee12fdec514a0f9) | FEAT: 아래 버튼을 0.4초 이상 누르고 있으면 하드 드롭 |
 | 2026-10-11 21:31 | [9ca6e89](https://github.com/khk9562/cattetris/commit/9ca6e89682254b3b37ddf284d06bc655e4b43070) | FEAT: 스테이지마다 팡 기준(N마리 팡 / 팡 없음)을 화면에 표시 |
