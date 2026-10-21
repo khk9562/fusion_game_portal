@@ -1,30 +1,32 @@
 :root {
-  --color-bg: #14151a;
-  --color-surface: #1d1f26;
-  --color-surface-2: #262932;
-  --color-line: #343846;
-  --color-text: #f1f2f5;
-  --color-muted: #9aa0ae;
-  --color-accent: #f2c14e;
-  --color-accent-text: #14151a;
-  --radius: 2px;
-  --font-sans: 'IBM Plex Sans KR', system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif;
-  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
-  color-scheme: dark;
-}
+  /* 어두운 오락실 바닥과 벽. 보라빛이 도는 아주 짙은 남색 */
+  --color-bg: #070514;
+  --color-surface: #120f2a;
+  --color-surface-2: #1c1842;
+  --color-line: #2e2868;
+  --color-text: #f4f1ff;
+  --color-muted: #a7a2cf;
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --color-bg: #f4f2ec;
-    --color-surface: #ffffff;
-    --color-surface-2: #ece9e1;
-    --color-line: #d9d5ca;
-    --color-text: #1b1c20;
-    --color-muted: #646875;
-    --color-accent: #1b1c20;
-    --color-accent-text: #ffffff;
-    color-scheme: light;
-  }
+  /* 네온 사인 색. 카드마다 돌아가며 쓰고, 기본 강조색은 마젠타 */
+  --color-neon-pink: #ff3fcf;
+  --color-neon-cyan: #2de2ff;
+  --color-neon-purple: #a06bff;
+  --color-neon-yellow: #ffe24a;
+  --color-neon-orange: #ff7a3d;
+  --color-neon-green: #4dff8f;
+  --color-neon-blue: #4f6bff;
+  --color-accent: var(--color-neon-pink);
+  --neon: var(--color-neon-pink);
+  --neon-rgb: 255 63 207;
+  --color-accent-text: #14061f;
+
+  --radius: 2px;
+  /* 본문은 읽기 쉬운 고딕, 간판 제목은 영문 네온 사인 글씨, 게임 이름은 굵은 한글 간판 글씨, 영문 라벨과 숫자는 8비트 픽셀 글씨 */
+  --font-sans: 'IBM Plex Sans KR', system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif;
+  --font-sign: 'Bungee', 'Black Han Sans', Impact, sans-serif;
+  --font-display: 'Black Han Sans', 'IBM Plex Sans KR', 'Apple SD Gothic Neo', sans-serif;
+  --font-pixel: 'Press Start 2P', 'IBM Plex Sans KR', ui-monospace, monospace;
+  color-scheme: dark;
 }
 
 *,
@@ -38,13 +40,64 @@ body {
   margin: 0;
 }
 
+/* body의 배경은 캔버스 전체로 번지고, 아래 격자와 빛은 그 위, 내용은 맨 위에 그려진다 */
 body {
+  min-height: 100vh;
   min-height: 100dvh;
-  background: var(--color-bg);
+  overflow-x: hidden;
+  background:
+    /* 천장의 네온 튜브 불빛. 파랑과 핑크가 위에서 흘러내린다 */
+    radial-gradient(60% 24rem at 12% -4rem, rgb(79 107 255 / 0.32), transparent 70%),
+    radial-gradient(50% 20rem at 88% -6rem, rgb(255 63 207 / 0.26), transparent 70%),
+    radial-gradient(40% 16rem at 50% -8rem, rgb(160 107 255 / 0.22), transparent 70%),
+    linear-gradient(180deg, #0c0724 0%, var(--color-bg) 42%, #0a0530 100%);
   color: var(--color-text);
   font-family: var(--font-sans);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+}
+
+/* 바닥: 지평선으로 모이는 네온 격자. 화면 아래 약 1/4 지점이 지평선이 된다 */
+body::before {
+  content: '';
+  position: fixed;
+  z-index: -1;
+  left: -100%;
+  bottom: 0;
+  width: 300%;
+  height: 120dvh;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgb(255 63 207 / 0.7) 0.0625rem, transparent 0.0625rem),
+    linear-gradient(to bottom, rgb(45 226 255 / 0.6) 0.0625rem, transparent 0.0625rem);
+  background-size:
+    5rem 100%,
+    100% 4rem;
+  background-position: center top;
+  transform: perspective(30rem) rotateX(50deg);
+  transform-origin: center bottom;
+  mask-image: linear-gradient(to bottom, transparent 0%, rgb(0 0 0 / 0.85) 30%, #000 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgb(0 0 0 / 0.85) 30%, #000 100%);
+}
+
+/* 지평선 빛과 흩어진 별, 가장자리를 어둡게 하는 비네팅 */
+body::after {
+  content: '';
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(60% 14rem at 50% 74%, rgb(255 63 207 / 0.38), rgb(160 107 255 / 0.12) 45%, transparent 70%),
+    linear-gradient(to bottom, transparent calc(74% - 0.0625rem), rgb(255 63 207 / 0.6) calc(74% - 0.0625rem), rgb(255 63 207 / 0.6) calc(74% + 0.0625rem), transparent calc(74% + 0.0625rem)),
+    radial-gradient(0.0625rem 0.0625rem at 18% 22%, rgb(255 255 255 / 0.7), transparent),
+    radial-gradient(0.0625rem 0.0625rem at 37% 9%, rgb(255 255 255 / 0.5), transparent),
+    radial-gradient(0.0625rem 0.0625rem at 63% 15%, rgb(255 255 255 / 0.6), transparent),
+    radial-gradient(0.0625rem 0.0625rem at 82% 28%, rgb(255 255 255 / 0.45), transparent),
+    radial-gradient(0.0625rem 0.0625rem at 48% 33%, rgb(255 255 255 / 0.55), transparent),
+    radial-gradient(0.0625rem 0.0625rem at 9% 41%, rgb(255 255 255 / 0.4), transparent),
+    radial-gradient(0.0625rem 0.0625rem at 93% 7%, rgb(255 255 255 / 0.5), transparent),
+    radial-gradient(120% 120% at 50% 50%, transparent 60%, rgb(0 0 0 / 0.45) 100%);
 }
 
 a {
@@ -52,6 +105,7 @@ a {
 }
 
 :focus-visible {
-  outline: 0.125rem solid var(--color-accent);
+  outline: 0.125rem solid var(--color-neon-cyan);
   outline-offset: 0.125rem;
+  box-shadow: 0 0 0.75rem rgb(45 226 255 / 0.6);
 }
