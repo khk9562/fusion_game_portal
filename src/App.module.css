@@ -79,11 +79,10 @@
   white-space: nowrap;
 }
 
-/* 글자마다 박자를 다르게 해서 제각기 살짝씩 떠다닌다 */
+/* 글자마다 뒤섞인 박자로 제각기 통통 뛴다 */
 .letter {
   display: inline-block;
-  --bob: -0.3rem;
-  animation: float calc(2.4s + var(--i, 0) * 0.17s) ease-in-out calc(var(--i, 0) * -0.43s) infinite;
+  animation: hop var(--hop-duration, 2s) ease-in-out var(--hop-delay, 0s) infinite;
 }
 
 .started .letter {
@@ -263,6 +262,24 @@
 
   50% {
     transform: translateY(var(--bob, -0.625rem));
+  }
+}
+
+/* 폴짝 뛰었다가 내려와 잠깐 쉰다 */
+@keyframes hop {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  35% {
+    transform: translateY(-0.35em);
+    animation-timing-function: ease-in;
+  }
+
+  60%,
+  100% {
+    transform: translateY(0);
   }
 }
 

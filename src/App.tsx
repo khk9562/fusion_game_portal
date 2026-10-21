@@ -6,7 +6,14 @@ import styles from './App.module.css';
 
 const TITLE = 'Fusion Game Portal';
 
-// 간판 글자를 한 글자씩 나눠 제각기 둥둥 떠 있게 한다. 읽어 주는 기기에는 제목 전체를 한 번에 준다
+// 글자마다 순번과 상관없이 뒤섞인 박자를 준다. 순번에 비례하면 줄 따라 파도치듯 보인다
+function hop(index: number): CSSProperties {
+  const duration = 1.5 + ((index * 7) % 9) * 0.14;
+  const delay = -((index * 5) % 11) * 0.29;
+  return { '--hop-duration': `${duration}s`, '--hop-delay': `${delay}s` } as CSSProperties;
+}
+
+// 간판 글자를 한 글자씩 나눠 제각기 통통 뛰게 한다. 읽어 주는 기기에는 제목 전체를 한 번에 준다
 function SignTitle({ className }: { className: string }) {
   let index = 0;
   return (
@@ -16,7 +23,7 @@ function SignTitle({ className }: { className: string }) {
           {wordIndex > 0 && ' '}
           <span className={styles.word}>
             {word.split('').map((letter, letterIndex) => (
-              <span key={letterIndex} className={styles.letter} style={{ '--i': index++ } as CSSProperties}>
+              <span key={letterIndex} className={styles.letter} style={hop(index++)}>
                 {letter}
               </span>
             ))}
