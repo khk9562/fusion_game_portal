@@ -62,7 +62,7 @@
   font-family: var(--font-sign);
   font-size: clamp(3.25rem, 17vw, 10rem);
   font-weight: 400;
-  line-height: 1.1;
+  line-height: 0.95;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   text-wrap: balance;
@@ -71,10 +71,23 @@
     drop-shadow(0 0 0.08em var(--color-neon-pink))
     drop-shadow(0 0 0.25em rgb(255 63 207 / 0.8))
     drop-shadow(0 0 0.6em rgb(255 63 207 / 0.5));
-  --bob: -0.875rem;
-  animation:
-    flicker 6s steps(1, end) infinite,
-    float 5s ease-in-out 0.4s infinite;
+  animation: flicker 6s steps(1, end) infinite;
+}
+
+.word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* 글자마다 박자를 다르게 해서 제각기 살짝씩 떠다닌다 */
+.letter {
+  display: inline-block;
+  --bob: -0.3rem;
+  animation: float calc(2.4s + var(--i, 0) * 0.17s) ease-in-out calc(var(--i, 0) * -0.43s) infinite;
+}
+
+.started .letter {
+  animation: none;
 }
 
 /* 시작 뒤에는 화면 너비에 맞춰 한 줄로 줄어든다. 한 줄 폭이 글자 크기의 약 12.7배라서 그보다 여유 있게 나눈다 */
@@ -268,6 +281,7 @@
 @media (prefers-reduced-motion: reduce) {
   .header,
   .title,
+  .letter,
   .count,
   .start,
   .grid > li {

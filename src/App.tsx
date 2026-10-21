@@ -4,6 +4,29 @@ import { games } from './games';
 import { readLastPlayed } from './recent';
 import styles from './App.module.css';
 
+const TITLE = 'Fusion Game Portal';
+
+// 간판 글자를 한 글자씩 나눠 제각기 둥둥 떠 있게 한다. 읽어 주는 기기에는 제목 전체를 한 번에 준다
+function SignTitle({ className }: { className: string }) {
+  let index = 0;
+  return (
+    <h1 className={className} lang="en" aria-label={TITLE}>
+      {TITLE.split(' ').map((word, wordIndex) => (
+        <span key={word} aria-hidden="true">
+          {wordIndex > 0 && ' '}
+          <span className={styles.word}>
+            {word.split('').map((letter, letterIndex) => (
+              <span key={letterIndex} className={styles.letter} style={{ '--i': index++ } as CSSProperties}>
+                {letter}
+              </span>
+            ))}
+          </span>
+        </span>
+      ))}
+    </h1>
+  );
+}
+
 export default function App() {
   const [lastPlayed] = useState(readLastPlayed);
   const [started, setStarted] = useState(false);
@@ -11,9 +34,7 @@ export default function App() {
   return (
     <div className={styles.page}>
       <header className={started ? `${styles.header} ${styles.started}` : styles.header}>
-        <h1 className={styles.title} lang="en">
-          Fusion Game Portal
-        </h1>
+        <SignTitle className={styles.title} />
         <p className={styles.count}>
           <span>{String(games.length).padStart(2, '0')}</span> GAMES
         </p>
