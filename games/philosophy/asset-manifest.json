@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "./static/css/main.31d6cfe0.css",
+    "main.js": "./static/js/main.49d5af32.js",
+    "static/media/unicorn.png": "./static/media/unicorn.5250100e6caed6e4701e.png",
+    "static/media/rainbow.png": "./static/media/rainbow.d47243b02d2011b69809.png",
+    "static/media/rabbit.png": "./static/media/rabbit.9d9452506b82fd7acb26.png",
+    "static/media/philosopher.png": "./static/media/philosopher.fbef3a61411a1b010261.png",
+    "static/media/tree.png": "./static/media/tree.f57f446c005c3044326e.png",
+    "index.html": "./index.html",
+    "main.49d5af32.js.map": "./static/js/main.49d5af32.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.31d6cfe0.css",
+    "static/js/main.49d5af32.js"
+  ]
+}
