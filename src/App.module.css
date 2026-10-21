@@ -1,6 +1,6 @@
 .page {
   width: 100%;
-  max-width: 72rem;
+  max-width: 64rem;
   margin: 0 auto;
   padding: max(1.5rem, env(safe-area-inset-top)) 1rem max(2rem, env(safe-area-inset-bottom));
 }
@@ -148,12 +148,15 @@
     inset 0 0 1rem rgb(255 226 74 / 0.3);
 }
 
+/* 오락실 기계처럼 작은 카드를 가운데 모아 두고 둘레에 여백을 넉넉히 남긴다 */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
-  gap: 1.25rem;
-  margin: 0;
-  padding: 0;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 16rem));
+  justify-content: center;
+  gap: 1.75rem;
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 0 0.5rem;
   list-style: none;
 }
 

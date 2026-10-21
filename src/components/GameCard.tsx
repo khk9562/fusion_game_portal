@@ -27,7 +27,6 @@ export function GameCard({ game, index, isLastPlayed }: Props) {
           </a>
         </h2>
         <p className={styles.tagline}>{game.tagline}</p>
-        <p className={styles.description}>{game.description}</p>
         <ul className={styles.tags}>
           {game.tags.map((tag) => (
             <li key={tag}>{tag}</li>
@@ -36,11 +35,11 @@ export function GameCard({ game, index, isLastPlayed }: Props) {
       </div>
 
       <div className={styles.actions}>
-        <a className={styles.play} href={href} onClick={play}>
-          플레이
-        </a>
         <a className={styles.repo} href={game.repo} target="_blank" rel="noreferrer">
           저장소
+        </a>
+        <a className={styles.play} href={href} onClick={play} aria-label={`${game.title} 플레이`} title="플레이">
+          <span className={styles.playIcon} aria-hidden="true" />
         </a>
       </div>
     </article>
