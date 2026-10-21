@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type CSSProperties } from 'react';
 import { GameCard } from './components/GameCard';
 import { games } from './games';
 import { readLastPlayed } from './recent';
@@ -6,27 +6,35 @@ import styles from './App.module.css';
 
 export default function App() {
   const [lastPlayed] = useState(readLastPlayed);
+  const [started, setStarted] = useState(false);
 
   return (
     <div className={styles.page}>
-      <header className={styles.header}>
+      <header className={started ? `${styles.header} ${styles.started}` : styles.header}>
         <h1 className={styles.title} lang="en">
           Fusion Game Portal
         </h1>
         <p className={styles.count}>
           <span>{String(games.length).padStart(2, '0')}</span> GAMES
         </p>
+        {!started && (
+          <button type="button" className={styles.start} onClick={() => setStarted(true)}>
+            GAME START ?
+          </button>
+        )}
       </header>
 
-      <main>
-        <ul className={styles.grid}>
-          {games.map((game, index) => (
-            <li key={game.slug}>
-              <GameCard game={game} index={index} isLastPlayed={game.slug === lastPlayed} />
-            </li>
-          ))}
-        </ul>
-      </main>
+      {started && (
+        <main>
+          <ul className={styles.grid}>
+            {games.map((game, index) => (
+              <li key={game.slug} style={{ '--i': index } as CSSProperties}>
+                <GameCard game={game} index={index} isLastPlayed={game.slug === lastPlayed} />
+              </li>
+            ))}
+          </ul>
+        </main>
+      )}
 
       <footer className={styles.footer}>
         <p>
