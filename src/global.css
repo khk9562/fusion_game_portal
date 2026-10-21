@@ -21,8 +21,10 @@
   --color-accent-text: #14061f;
 
   --radius: 2px;
+  /* 본문은 읽기 쉬운 고딕, 제목과 버튼은 간판 글씨, 영문 라벨과 숫자는 8비트 픽셀 글씨 */
   --font-sans: 'IBM Plex Sans KR', system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif;
-  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --font-display: 'Black Han Sans', 'IBM Plex Sans KR', 'Apple SD Gothic Neo', sans-serif;
+  --font-pixel: 'Press Start 2P', 'IBM Plex Sans KR', ui-monospace, monospace;
   color-scheme: dark;
 }
 

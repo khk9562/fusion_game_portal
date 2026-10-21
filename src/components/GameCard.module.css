@@ -61,9 +61,10 @@
   top: 0.625rem;
   padding: 0.125rem 0.375rem;
   border-radius: var(--radius);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-family: var(--font-pixel);
+  font-size: 0.625rem;
+  font-weight: 400;
+  line-height: 1.4;
 }
 
 .slot {
@@ -80,6 +81,8 @@
   background: var(--color-neon-yellow);
   color: var(--color-accent-text);
   font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
   box-shadow: 0 0 0.5rem rgb(255 226 74 / 0.8);
 }
 
@@ -91,17 +94,19 @@
 .english {
   margin: 0;
   color: var(--neon);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
+  font-family: var(--font-pixel);
+  font-size: 0.5625rem;
+  letter-spacing: 0.06em;
   text-shadow: 0 0 0.5rem rgb(var(--neon-rgb) / 0.7);
 }
 
 .title {
-  margin: 0.125rem 0 0;
-  font-size: 1.25rem;
-  font-weight: 700;
-  line-height: 1.35;
+  margin: 0.375rem 0 0;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
 }
 
 .title a {
@@ -166,8 +171,9 @@
   flex: 1;
   background: var(--neon);
   color: var(--color-accent-text);
-  font-family: var(--font-mono);
-  letter-spacing: 0.08em;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   box-shadow:
     0 0 0.5rem rgb(var(--neon-rgb) / 0.7),
     0 0 1.25rem rgb(var(--neon-rgb) / 0.35);
