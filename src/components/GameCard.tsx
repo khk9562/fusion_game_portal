@@ -39,7 +39,9 @@ export function GameCard({ game, index, isLastPlayed }: Props) {
           저장소
         </a>
         <a className={styles.play} href={href} onClick={play} aria-label={`${game.title} 플레이`} title="플레이">
-          <span className={styles.playIcon} aria-hidden="true" />
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 4.5 19.5 12 7 19.5Z" />
+          </svg>
         </a>
       </div>
     </article>
