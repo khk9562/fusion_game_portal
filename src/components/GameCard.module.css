@@ -154,32 +154,16 @@
 
 .actions {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
-  padding: 0.5rem 0.875rem 0.875rem;
-}
-
-.repo {
-  color: var(--color-muted);
-  font-size: 0.75rem;
-  letter-spacing: 0.04em;
-  text-decoration: none;
-  text-underline-offset: 0.25em;
-  transition: color 120ms ease;
-}
-
-.repo:hover {
-  color: var(--neon);
-  text-decoration: underline;
+  justify-content: center;
+  padding: 0.5rem 0.875rem 1rem;
 }
 
 /* 플레이: 간판 글자처럼 속이 비고 윤곽선만 빛나는 네온 세모 재생 아이콘 */
 .play {
   display: inline-flex;
   flex: none;
-  width: 3.25rem;
-  height: 3.25rem;
+  width: 4.5rem;
+  height: 4.5rem;
   padding: 0.125rem;
   transition: transform 120ms ease;
 }
@@ -220,8 +204,7 @@
   .card,
   .thumb svg,
   .play,
-  .play svg,
-  .repo {
+  .play svg {
     transition: none;
   }
 }
