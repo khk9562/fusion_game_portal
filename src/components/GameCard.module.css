@@ -181,40 +181,6 @@
   line-height: 1.45;
 }
 
-/* 태그는 평소에 썸네일 아래쪽에 보이고, 열리면 설명 패널 뒤로 숨는다 */
-.tags {
-  position: absolute;
-  left: 0.625rem;
-  bottom: 0.625rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.375rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  transition: opacity 200ms ease;
-}
-
-.tags li {
-  padding: 0.0625rem 0.4375rem;
-  background: rgb(7 5 20 / 0.7);
-  border: 0.0625rem solid var(--color-line);
-  border-radius: var(--radius);
-  color: var(--color-text);
-  font-size: 0.6875rem;
-}
-
-.card.open .tags,
-.card:focus-within .tags {
-  opacity: 0;
-}
-
-@media (hover: hover) {
-  .card:hover .tags {
-    opacity: 0;
-  }
-}
-
 /* 아래 줄: 제목과 재생 아이콘 */
 .footer {
   display: flex;
@@ -240,6 +206,25 @@
 .title a:hover {
   color: #fff;
   text-shadow: 0 0 0.75rem rgb(var(--neon-rgb) / 0.8);
+}
+
+/* 태그는 제목 아래에 둔다 */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3125rem;
+  margin: 0.375rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tags li {
+  padding: 0.0625rem 0.4375rem;
+  background: var(--color-surface-2);
+  border: 0.0625rem solid var(--color-line);
+  border-radius: var(--radius);
+  color: var(--color-muted);
+  font-size: 0.6875rem;
 }
 
 /* 플레이: 간판 글자처럼 속이 비고 윤곽선만 빛나는 네온 세모 재생 아이콘 */
@@ -288,7 +273,6 @@
   .card,
   .thumb svg,
   .details,
-  .tags,
   .play,
   .play svg {
     transition: none;

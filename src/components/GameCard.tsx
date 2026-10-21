@@ -30,20 +30,21 @@ export function GameCard({ game, index, isLastPlayed }: Props) {
           <p className={styles.tagline}>{game.tagline}</p>
           <p className={styles.description}>{game.description}</p>
         </div>
-
-        <ul className={styles.tags}>
-          {game.tags.map((tag) => (
-            <li key={tag}>{tag}</li>
-          ))}
-        </ul>
       </div>
 
       <div className={styles.footer}>
-        <h2 className={styles.title}>
-          <a href={href} onClick={play}>
-            {game.title}
-          </a>
-        </h2>
+        <div>
+          <h2 className={styles.title}>
+            <a href={href} onClick={play}>
+              {game.title}
+            </a>
+          </h2>
+          <ul className={styles.tags}>
+            {game.tags.map((tag) => (
+              <li key={tag}>{tag}</li>
+            ))}
+          </ul>
+        </div>
         <a className={styles.play} href={href} onClick={play} aria-label={`${game.title} 플레이`} title="플레이">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M7 4.5 19.5 12 7 19.5Z" />
