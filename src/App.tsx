@@ -10,9 +10,9 @@ export default function App() {
   return (
     <div className={styles.page}>
       <header className={styles.header}>
-        <p className={styles.kicker}>FUSION GAME PORTAL</p>
-        <h1 className={styles.title}>퓨전 게임 포털</h1>
-        <p className={styles.lead}>설치 없이 바로 즐기는 미니 게임 모음입니다. 게임을 고르고 플레이를 누르세요.</p>
+        <h1 className={styles.title} lang="en">
+          Fusion Game Portal
+        </h1>
         <p className={styles.count}>
           <span>{String(games.length).padStart(2, '0')}</span> GAMES
         </p>
